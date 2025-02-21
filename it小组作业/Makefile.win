@@ -1,0 +1,49 @@
+# Project: 小组作业1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o add.o divide.o input.o modulus.o multiply.o output.o subtract.o
+LINKOBJ  = main.o add.o divide.o input.o modulus.o multiply.o output.o subtract.o
+LIBS     = -L"D:/Dev C++/Dev-Cpp/MinGW64/lib" -L"D:/Dev C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"D:/Dev C++/Dev-Cpp/MinGW64/include" -I"D:/Dev C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Dev C++/Dev-Cpp/MinGW64/include" -I"D:/Dev C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Dev C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = 小组作业1.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+add.o: add.c
+	$(CC) -c add.c -o add.o $(CFLAGS)
+
+divide.o: divide.c
+	$(CC) -c divide.c -o divide.o $(CFLAGS)
+
+input.o: input.c
+	$(CC) -c input.c -o input.o $(CFLAGS)
+
+modulus.o: modulus.c
+	$(CC) -c modulus.c -o modulus.o $(CFLAGS)
+
+multiply.o: multiply.c
+	$(CC) -c multiply.c -o multiply.o $(CFLAGS)
+
+output.o: output.c
+	$(CC) -c output.c -o output.o $(CFLAGS)
+
+subtract.o: subtract.c
+	$(CC) -c subtract.c -o subtract.o $(CFLAGS)
